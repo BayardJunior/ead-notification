@@ -13,9 +13,9 @@ spring:
       discovery:
         serviceId: ead-config-server
   datasource:
-    url:  jdbc:postgresql://localhost:5432/ead-notification-v2
+    url: jdbc:postgresql://localhost:5432/ead-notification-v2
     username: postgres
-    password: banco123
+    password: admin
   jpa:
     hibernate:
       ddl-auto: update
@@ -29,8 +29,7 @@ spring:
     ansi:
       enabled: Always
   rabbitmq:
-    addresses: amqps://oqaevxaf:6KU7WK_x0k2Et0CwgwlOOdf95NAR4uPG@woodpecker.rmq.cloudamqp.com/oqaevxaf
-
+    addresses: amqps://adhaesfa:ustl0ZLJ21Qb8UcQJD4HZDWnPD-wSJvF@shrimp.rmq.cloudamqp.com/adhaesfa
 
 logging:
   level:
@@ -39,9 +38,16 @@ logging:
     org.springframework.web: DEBUG
     org.hibernate: INFO
 
-
 # inserir broker properties
-
+ead:
+  broker:
+    queue:
+      notificationCommandQueue:
+        name: ead.notificationcommand.ms.notification
+    exchange:
+      notificationCommandExchange: ead.notificationcommand
+    key:
+      notificationCommandKey: ms.notification
 
 management:
   endpoints:
